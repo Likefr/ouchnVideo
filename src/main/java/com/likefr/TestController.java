@@ -19,7 +19,7 @@ public class TestController {
     // 需要刷的视频地址 详见文档 别填错了
     private static final String VIDEO_URL = "https://lms.ouchn.cn/course/xxxxxxxxxx";
     // 用户名
-    private static final String USERNAME = "2035001409362";
+    private static final String USERNAME = "203500140xxxx";
     // 密码
     private static final String PASSWORD = "Ouchn@2021";
     public static Integer count = 0; // 这一行不要修改
