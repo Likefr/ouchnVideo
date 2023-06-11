@@ -12,23 +12,27 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * @version 1.0 2022/12/27
+ * @version 1.0 2023/06/11
  * @outhor Likefr
  */
 public class TestController {
     // 需要刷的视频地址 详见文档 别填错了
-    private static final String VIDEO_URL = "https://lms.ouchn.cn/course/xxxxxxxxxx";
+    private static final String VIDEO_URL = "https://lms.ouchn.cn/course/70000025512/learning-activity/full-screen#/70002720249";
     // 用户名
-    private static final String USERNAME = "2035001409362";
+    private static final String USERNAME = "20350014XXXXX";
     // 密码
-    private static final String PASSWORD = "Ouchn@2021";
+    private static final String PASSWORD = "OuchnXXXX";
+    private static final String DRIVE_PATH = "F:\\Desktop\\Project\\ouchnVideo\\src\\main\\resources\\chromedriver.exe" ;
     public static Integer count = 0; // 这一行不要修改
 
     public static void main(String[] args) throws InterruptedException, IOException {
-        System.getProperties().setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/resources/chromedriver.exe");
+
+        System.getProperties().setProperty("webdriver.chrome.driver",DRIVE_PATH);
         ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--remote-allow-origins=*");
 //        chromeOptions
         ChromeDriver chromeDriver = new ChromeDriver(chromeOptions);
+
         // 指定登录地址
         chromeDriver.get("https://iam.pt.ouchn.cn/am/UI/Login?realm=%2F&service=initService&goto=https%3A%2F%2Fiam.pt.ouchn.cn%2Fam%2Foauth2%2Fauthorize%3Fservice%3DinitService%26response_type%3Dcode%26client_id%3D345fcbaf076a4f8a%26scope%3Dall%26redirect_uri%3Dhttps%253A%252F%252Fmenhu.pt.ouchn.cn%252Fouchnapp%252Fwap%252Flogin%252Findex%26decision%3DAllow");
         chromeDriver.findElement(By.tagName("html")).sendKeys(Keys.F11);
@@ -152,7 +156,6 @@ public class TestController {
             }
 
         }
-//        chromeDriver.close();
     }
 }
 
